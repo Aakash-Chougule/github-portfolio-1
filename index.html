@@ -1,194 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aakash Chougule | ASP.NET Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #333333;
-      --primary: #2c3e50;
-      --accent: #1abc9c;
+      --bg: #1e1e1e;
+      --text: #f1f1f1;
+      --primary: #2980b9;
+      --secondary: #2c2c2c;
+      --highlight: #e74c3c;
     }
 
-    body.dark {
-      --bg: #121212;
-      --text: #f4f4f4;
-      --primary: #1f1f1f;
-      --accent: #1abc9c;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    body.light-mode {
+      --bg: #f8f9fa;
+      --text: #212529;
+      --primary: #3498db;
+      --secondary: #ecf0f1;
+      --highlight: #e67e22;
     }
 
     body {
+      margin: 0;
       font-family: 'Roboto', sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      transition: background-color 0.3s, color 0.3s;
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: var(--primary);
+      background: var(--primary);
       color: white;
-    }
-
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      margin-bottom: 1rem;
+      text-align: center;
+      padding: 4rem 1rem;
     }
 
     nav {
+      position: sticky;
+      top: 0;
+      background: var(--secondary);
+      padding: 1rem;
       display: flex;
       justify-content: center;
       gap: 1.5rem;
-      padding: 1rem;
-      background: var(--primary);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 100;
     }
 
     nav a {
-      color: white;
       text-decoration: none;
+      color: var(--text);
       font-weight: bold;
-      transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: var(--accent);
+    nav a.active {
+      color: var(--highlight);
     }
 
-    .toggle-mode {
+    .toggle-btn {
       position: fixed;
       top: 1rem;
       right: 1rem;
-      background: var(--accent);
+      background: var(--highlight);
       color: white;
-      border: none;
       padding: 0.5rem 1rem;
-      border-radius: 20px;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
+      z-index: 1000;
     }
 
     section {
       padding: 4rem 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
     }
 
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .card {
-      background: var(--primary);
-      color: white;
+    .projects .card {
+      background: var(--secondary);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 1rem 0;
       padding: 1rem;
-      border-radius: 12px;
-      margin-bottom: 1rem;
       transition: transform 0.3s ease;
     }
 
-    .card:hover {
+    .projects .card:hover {
       transform: translateY(-5px);
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: var(--primary);
-      color: white;
+    .skills {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
+    .skills h2 {
+      align-self: flex-start;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .skill-box {
+      background: var(--secondary);
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 160px;
+      position: relative;
+    }
+
+    .skill-box h4 {
+      margin: 0.5rem 0;
+    }
+
+    .bar-container {
+      height: 10px;
+      background: #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--primary);
+      width: var(--value);
+      transition: width 0.5s;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: var(--secondary);
+      color: var(--text);
+    }
+
+    form button {
+      padding: 0.5rem 1rem;
+      background: var(--highlight);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      display: none;
     }
   </style>
 </head>
-<body>
 
-  <button class="toggle-mode" onclick="toggleDarkMode()">Toggle Mode</button>
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Theme</button>
 
   <header>
-    <img src="resources/profile_photo.jpeg" alt="Profile Photo">
     <h1>Aakash Chougule</h1>
-    <p>ASP.NET Developer | Fresher</p>
+    <p>Fresher | ASP.NET Developer</p>
   </header>
 
   <nav>
-    <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="home">
-    <h2>Welcome</h2>
-    <p>Hello! I’m Aakash, an aspiring ASP.NET developer. Check out my work, skills, and feel free to reach out!</p>
-  </section>
-
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m a passionate fresher with strong fundamentals in ASP.NET, C#, and web development. Eager to contribute to real-world projects and grow as a full-stack developer.</p>
+    <p>I'm an ASP.NET fresher with passion for building dynamic web apps using .NET, C#, and front-end tech.</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="skills">
     <h2>Skills</h2>
-    <div class="card">✔ ASP.NET MVC & Web Forms</div>
-    <div class="card">✔ C# and .NET Framework</div>
-    <div class="card">✔ HTML, CSS, JavaScript</div>
-    <div class="card">✔ SQL Server, ADO.NET</div>
-    <div class="card">✔ Git & Version Control</div>
+    <div class="skill-list">
+      <div class="skill-box">
+        <h4>ASP.NET</h4>
+        <div class="bar-container"><div class="bar-fill" style="--value: 85%; width: 85%;"></div></div>
+      </div>
+      <div class="skill-box">
+        <h4>C#</h4>
+        <div class="bar-container"><div class="bar-fill" style="--value: 80%; width: 80%;"></div></div>
+      </div>
+      <div class="skill-box">
+        <h4>HTML/CSS</h4>
+        <div class="bar-container"><div class="bar-fill" style="--value: 90%; width: 90%;"></div></div>
+      </div>
+      <div class="skill-box">
+        <h4>JavaScript</h4>
+        <div class="bar-container"><div class="bar-fill" style="--value: 75%; width: 75%;"></div></div>
+      </div>
+      <div class="skill-box">
+        <h4>SQL</h4>
+        <div class="bar-container"><div class="bar-fill" style="--value: 70%; width: 70%;"></div></div>
+      </div>
+    </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="projects">
     <h2>Projects</h2>
     <div class="card">
-      <strong>Inventory Management System</strong> – Developed using ASP.NET MVC and SQL Server.
+      <h3>Inventory Management System</h3>
+      <p>ASP.NET MVC based system for managing inventory.</p>
+      <a href="#">View on GitHub</a>
     </div>
     <div class="card">
-      <strong>DilSeConnect UI</strong> – Android design prototype for a social networking app.
-    </div>
-    <div class="card">
-      <strong>Store Management System</strong> – Built for Luxmi Traders using Windows Forms.
-    </div>
-    <div class="card">
-      <strong>Portfolio Website</strong> – Built using Vue.js and Tailwind CSS.
+      <h3>Store Management System</h3>
+      <p>Windows Forms app for a local business.</p>
+      <a href="#">View on GitHub</a>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: aakash@example.com</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/aakash" target="_blank">linkedin.com/in/aakash</a></p>
-    <p>GitHub: <a href="https://github.com/aakash" target="_blank">github.com/aakash</a></p>
+    <h2>Contact Me</h2>
+    <form onsubmit="return validateForm()">
+      <input type="text" id="name" placeholder="Your Name" onblur="validateName()" required />
+      <input type="email" id="email" placeholder="Your Email" onblur="validateEmail()" required />
+      <input type="tel" id="phone" placeholder="Your Phone" onblur="validatePhone()" />
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
   </section>
 
   <footer>
     <p>&copy; 2025 Aakash Chougule. All rights reserved.</p>
   </footer>
 
+  <button id="backToTop" onclick="scrollToTop()">Top</button>
+
   <script>
     function toggleDarkMode() {
-      document.body.classList.toggle("dark");
+      document.body.classList.toggle("light-mode");
     }
-  </script>
 
+    function validateName() {
+      const name = document.getElementById("name").value;
+      const regex = /^[A-Za-z\s]+$/;
+      if (!regex.test(name)) {
+        alert("Name should contain only letters.");
+        document.getElementById("name").value = "";
+      }
+    }
+
+    function validateEmail() {
+      const email = document.getElementById("email").value;
+      const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!regex.test(email)) {
+        alert("Please enter a valid email address.");
+      }
+    }
+
+    function validatePhone() {
+      const phone = document.getElementById("phone").value;
+      const regex = /^[0-9]*$/;
+      if (!regex.test(phone) && phone !== "") {
+        alert("Phone number should contain only numbers.");
+        document.getElementById("phone").value = "";
+      }
+    }
+
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return false;
+      }
+      alert("Message sent!");
+      return true;
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      sections.forEach(sec => {
+        const top = window.scrollY;
+        const offset = sec.offsetTop - 150;
+        const height = sec.offsetHeight;
+        if (top >= offset && top < offset + height) {
+          document.querySelectorAll("nav a").forEach(link => link.classList.remove("active"));
+          document.querySelector(`nav a[href="#${sec.id}"]`).classList.add("active");
+        }
+        if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+          sec.classList.add("visible");
+        }
+      });
+      document.getElementById("backToTop").style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
 </body>
+
 </html>
