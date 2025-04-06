@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aakash Chougule | ASP.NET Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #333333;
+      --primary: #2c3e50;
+      --accent: #1abc9c;
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #f4f4f4;
+      --primary: #1f1f1f;
+      --accent: #1abc9c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--primary);
+      color: white;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem;
+      background: var(--primary);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .card {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--primary);
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="toggle-mode" onclick="toggleDarkMode()">Toggle Mode</button>
+
+  <header>
+    <img src="resources/profile_photo.jpeg" alt="Profile Photo">
+    <h1>Aakash Chougule</h1>
+    <p>ASP.NET Developer | Fresher</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h2>Welcome</h2>
+    <p>Hello! I’m Aakash, an aspiring ASP.NET developer. Check out my work, skills, and feel free to reach out!</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a passionate fresher with strong fundamentals in ASP.NET, C#, and web development. Eager to contribute to real-world projects and grow as a full-stack developer.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card">✔ ASP.NET MVC & Web Forms</div>
+    <div class="card">✔ C# and .NET Framework</div>
+    <div class="card">✔ HTML, CSS, JavaScript</div>
+    <div class="card">✔ SQL Server, ADO.NET</div>
+    <div class="card">✔ Git & Version Control</div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <strong>Inventory Management System</strong> – Developed using ASP.NET MVC and SQL Server.
+    </div>
+    <div class="card">
+      <strong>DilSeConnect UI</strong> – Android design prototype for a social networking app.
+    </div>
+    <div class="card">
+      <strong>Store Management System</strong> – Built for Luxmi Traders using Windows Forms.
+    </div>
+    <div class="card">
+      <strong>Portfolio Website</strong> – Built using Vue.js and Tailwind CSS.
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: aakash@example.com</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/aakash" target="_blank">linkedin.com/in/aakash</a></p>
+    <p>GitHub: <a href="https://github.com/aakash" target="_blank">github.com/aakash</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Aakash Chougule. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+
+</body>
+</html>
