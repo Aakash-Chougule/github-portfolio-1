@@ -33,57 +33,56 @@
     }
 
     header {
-  background: var(--primary);
-  color: white;
-  text-align: center;
-  padding: 4rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.profile-header {
-  background: var(--primary);
-  color: white;
-  padding: 3rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.profile-header .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
+    .profile-header {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-.profile-pic {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid white;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-}
+    .profile-header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
 
-.profile-pic:hover {
-  transform: scale(1.05);
-}
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
 
-.profile-text h1 {
-  margin: 0;
-  font-size: 2rem;
-}
+    .profile-pic:hover {
+      transform: scale(1.05);
+    }
 
-.profile-text p {
-  font-size: 1.2rem;
-  margin-top: 0.3rem;
-  opacity: 0.9;
-}
+    .profile-text h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
 
-
+    .profile-text p {
+      font-size: 1.2rem;
+      margin-top: 0.3rem;
+      opacity: 0.9;
+    }
 
     nav {
       position: sticky;
@@ -242,6 +241,36 @@
       padding: 2rem;
       background: var(--secondary);
     }
+
+    @media (max-width: 768px) {
+      .profile-header {
+        padding: 2rem 1rem;
+      }
+
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      .projects .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-list {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skill-box {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 1rem;
+      }
+    }
   </style>
 </head>
 
@@ -257,8 +286,6 @@
       </div>
     </div>
   </header>
-  
-  
 
   <nav>
     <a href="#about">About</a>
@@ -269,7 +296,12 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I'm an ASP.NET fresher with a passion for building dynamic web apps using .NET, C#, and front-end technologies.</p>
+    <div class="about-content">
+      <p>👋 Hey there! I'm <strong style="color: var(--highlight);">Aakash Chougule</strong>, an enthusiastic and dedicated <strong>ASP.NET Developer</strong> passionate about building modern, responsive web applications.</p>
+      <p>With a solid foundation in <strong>C#, ASP.NET MVC, Web API</strong>, and front-end technologies like <strong>HTML, CSS, JavaScript</strong>, I'm on a mission to turn complex ideas into smooth and efficient digital experiences.</p>
+      <p>I thrive in collaborative environments and love learning new tech. Whether it's developing scalable backend logic or designing intuitive UI, I bring creativity, logic, and attention to detail to every project.</p>
+      <p>🚀 Currently seeking opportunities to grow and contribute to real-world projects while leveling up as a full-stack developer.</p>
+    </div>
   </section>
 
   <section id="skills" class="skills">
@@ -321,7 +353,6 @@
       </div>
     </div>
   </section>
-  
 
   <section id="projects" class="projects">
     <h2>Projects</h2>
@@ -335,31 +366,13 @@
       <div class="card">
         <img src="https://via.placeholder.com/400x150?text=Store+Management" alt="Store System">
         <h3>Store Management System (Luxmi Traders)</h3>
-        <p>Windows Forms app for local store inventory and sales tracking.</p>
+        <p>Windows Forms app for local store inventory and sales management.</p>
         <a href="#">View on GitHub</a>
       </div>
       <div class="card">
-        <img src="https://via.placeholder.com/400x150?text=DilSeConnect+Design" alt="DilSeConnect App">
-        <h3>DilSeConnect - Android Design</h3>
-        <p>UI/UX design prototype for emotional content sharing app.</p>
-        <a href="#">View on GitHub</a>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/400x150?text=Cafe+Website" alt="Cafe Coffee Bean">
+        <img src="https://via.placeholder.com/400x150?text=Cafe+Website" alt="Cafe Coffee Bean Website">
         <h3>Cafe Coffee Bean Website</h3>
-        <p>Static website using HTML, CSS, and JavaScript.</p>
-        <a href="#">View on GitHub</a>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/400x150?text=Vue+Template" alt="Vue Template">
-        <h3>Website Template (Vue.js / Tailwind)</h3>
-        <p>Reusable responsive template built with Vue.js and Tailwind CSS.</p>
-        <a href="#">View on GitHub</a>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/400x150?text=Portfolio+Website" alt="Portfolio">
-        <h3>Portfolio Website</h3>
-        <p>Single-page portfolio with dark/light theme and contact form.</p>
+        <p>HTML, CSS, and JS website for the coffee shop.</p>
         <a href="#">View on GitHub</a>
       </div>
     </div>
@@ -367,85 +380,48 @@
 
   <section id="contact">
     <h2>Contact Me</h2>
-    <form onsubmit="return validateForm()">
-      <input type="text" id="name" placeholder="Your Name" onblur="validateName()" required />
-      <input type="email" id="email" placeholder="Your Email" onblur="validateEmail()" required />
-      <input type="tel" id="phone" placeholder="Your Phone" onblur="validatePhone()" />
-      <textarea id="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
+    <form action="https://formsubmit.co/aakash.chougule@example.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
     </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 Aakash Chougule. All rights reserved.</p>
+    <p>&copy; 2025 Aakash Chougule | ASP.NET Developer</p>
   </footer>
 
-  <button id="backToTop" onclick="scrollToTop()">Top</button>
+  <button id="backToTop" onclick="scrollToTop()">Back to Top</button>
 
   <script>
+    const darkModeToggle = document.querySelector('.toggle-btn');
+    const sections = document.querySelectorAll('section');
+    const backToTopBtn = document.getElementById('backToTop');
+    
     function toggleDarkMode() {
-      document.body.classList.toggle("light-mode");
-    }
-
-    function validateName() {
-      const name = document.getElementById("name").value;
-      const regex = /^[A-Za-z\s]+$/;
-      if (!regex.test(name)) {
-        alert("Name should contain only letters.");
-        document.getElementById("name").value = "";
-      }
-    }
-
-    function validateEmail() {
-      const email = document.getElementById("email").value;
-      const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-      if (!regex.test(email)) {
-        alert("Please enter a valid email address.");
-      }
-    }
-
-    function validatePhone() {
-      const phone = document.getElementById("phone").value;
-      const regex = /^[0-9]*$/;
-      if (!regex.test(phone) && phone !== "") {
-        alert("Phone number should contain only numbers.");
-        document.getElementById("phone").value = "";
-      }
-    }
-
-    function validateForm() {
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
-      if (!name || !email || !message) {
-        alert("Please fill in all fields.");
-        return false;
-      }
-      alert("Message sent!");
-      return true;
+      document.body.classList.toggle('light-mode');
     }
 
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    const sections = document.querySelectorAll("section");
-    window.addEventListener("scroll", () => {
-      sections.forEach(sec => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 150;
-        const height = sec.offsetHeight;
-        if (top >= offset && top < offset + height) {
-          document.querySelectorAll("nav a").forEach(link => link.classList.remove("active"));
-          document.querySelector(`nav a[href="#${sec.id}"]`).classList.add("active");
-        }
-        if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
-          sec.classList.add("visible");
+    function showSectionOnScroll() {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      sections.forEach(section => {
+        if (section.offsetTop < scrollPosition) {
+          section.classList.add('visible');
         }
       });
-      document.getElementById("backToTop").style.display = window.scrollY > 300 ? 'block' : 'none';
+    }
+
+    window.addEventListener('scroll', showSectionOnScroll);
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
     });
+    
+    showSectionOnScroll();
   </script>
 </body>
-
 </html>
