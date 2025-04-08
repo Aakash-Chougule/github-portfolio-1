@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aakash Chougule | ASP.NET Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
     :root {
       --bg: #1e1e1e;
@@ -23,6 +25,10 @@
       --highlight: #e67e22;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
@@ -32,24 +38,12 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    header {
+    header,
+    .profile-header {
       background: var(--primary);
       color: white;
       text-align: center;
       padding: 4rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .profile-header {
-      background: var(--primary);
-      color: white;
-      padding: 3rem 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
     }
 
     .profile-header .container {
@@ -90,8 +84,9 @@
       background: var(--secondary);
       padding: 1rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       z-index: 100;
     }
@@ -242,6 +237,25 @@
       background: var(--secondary);
     }
 
+    .social-icons {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .social-icons a {
+      color: var(--text);
+      font-size: 1.8rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--highlight);
+      transform: scale(1.2);
+    }
+
     @media (max-width: 768px) {
       .profile-header {
         padding: 2rem 1rem;
@@ -254,21 +268,12 @@
 
       nav {
         flex-direction: column;
-      }
-
-      .projects .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skill-list {
-        flex-direction: column;
         align-items: center;
       }
 
       .skill-box {
         width: 100%;
         max-width: 300px;
-        margin-bottom: 1rem;
       }
     }
   </style>
@@ -302,6 +307,16 @@
       <p>I thrive in collaborative environments and love learning new tech. Whether it's developing scalable backend logic or designing intuitive UI, I bring creativity, logic, and attention to detail to every project.</p>
       <p>🚀 Currently seeking opportunities to grow and contribute to real-world projects while leveling up as a full-stack developer.</p>
     </div>
+    <div class="social-icons">
+      <a href="https://github.com/Aakash-Chougule" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/aakash-chougule-031524186/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:aakashc549@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://stackoverflow.com/users/17657836/aakash-chougule" target="_blank" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+      <a href="https://www.hackerrank.com/profile/aakashc549" target="_blank" aria-label="HackerRank"><i class="fab fa-hackerrank"></i></a>
+      <a href="resources/Documents/Aakash_chougule_Resume.pdf" download aria-label="Download CV"><i class="fas fa-file-download"></i></a>
+    </div>
+    
+
   </section>
 
   <section id="skills" class="skills">
@@ -358,35 +373,57 @@
     <h2>Projects</h2>
     <div class="project-grid">
       <div class="card">
-        <img src="https://via.placeholder.com/400x150?text=Inventory+Management" alt="Inventory System">
+        <img src="resources/images/inventory_managemant.png" alt="Inventory System">
         <h3>Inventory Management System</h3>
-        <p>ASP.NET MVC based system for managing inventory.</p>
-        <a href="#">View on GitHub</a>
+        <p>ASP.NET based application to manage stock, sales, and purchase</p>
+        <a href="https://github.com/Aakash-Chougule">View on GitHub</a>
       </div>
       <div class="card">
-        <img src="https://via.placeholder.com/400x150?text=Store+Management" alt="Store System">
+        <img src="resources/images/laxmi_traders.png" alt="Store System">
         <h3>Store Management System (Luxmi Traders)</h3>
         <p>Windows Forms app for local store inventory and sales management.</p>
-        <a href="#">View on GitHub</a>
+        <a href="https://github.com/Aakash-Chougule">View on GitHub</a>
       </div>
       <div class="card">
-        <img src="https://via.placeholder.com/400x150?text=Cafe+Website" alt="Cafe Coffee Bean Website">
+        <img src="resources/images/cafe_coffee_bean.png" alt="Cafe Coffee Bean Website">
         <h3>Cafe Coffee Bean Website</h3>
         <p>HTML, CSS, and JS website for the coffee shop.</p>
-        <a href="#">View on GitHub</a>
+        <a href="https://github.com/Aakash-Chougule">View on GitHub</a>
+      </div>
+      <div class="card">
+        <img src="resources/images/dil_se_connect.png" alt="DilSeConnect Design">
+        <h3>DilSeConnect App Design</h3>
+        <p>UI design for a social connection app using Android Studio (Java).</p>
+        <a href="https://github.com/Aakash-Chougule">View Details</a>
+      </div>
+      <div class="card">
+        <img src="resources/images/vue_js.png" alt="Website Template">
+        <h3>Vue.js Website Template</h3>
+        <p>Responsive single-page template using Vue.js and Tailwind CSS.</p>
+        <a href="https://github.com/Aakash-Chougule">View on GitHub</a>
+      </div>
+      <div class="card">
+        <img src="resources/images/portfolio.png" alt="Portfolio Website">
+        <h3>Portfolio Website</h3>
+        <p>Fully responsive personal portfolio with dark mode and animations.</p>
+        <a href="https://github.com/Aakash-Chougule">Live Demo</a>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact Me</h2>
-    <form action="https://formsubmit.co/aakash.chougule@example.com" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <form id="contactForm" action="https://formsubmit.co/aakash.chougule@example.com" method="POST">
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
+
+  <div id="successPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #28a745; color: white; padding: 1rem 2rem; border-radius: 8px; font-size: 1.2rem;">
+    Your message has been sent to the developer!
+  </div>
 
   <footer>
     <p>&copy; 2025 Aakash Chougule | ASP.NET Developer</p>
@@ -394,10 +431,69 @@
 
   <button id="backToTop" onclick="scrollToTop()">Back to Top</button>
 
-  <script>
+  <script >
     const darkModeToggle = document.querySelector('.toggle-btn');
     const sections = document.querySelectorAll('section');
     const backToTopBtn = document.getElementById('backToTop');
+    
+//validation for contact 
+const form = document.getElementById('contactForm');
+  const nameField = document.getElementById('name');
+  const emailField = document.getElementById('email');
+  const messageField = document.getElementById('message');
+  const successPopup = document.getElementById('successPopup');
+
+  form.addEventListener('submit', function(event) {
+    // Prevent form submission to handle validation
+    event.preventDefault();
+    
+    let valid = true;
+
+       // Check if Name is filled and contains only letters
+       const namePattern = /^[A-Za-z\s]+$/;  // Name can only contain letters and spaces
+    if (nameField.value.trim() === '') {
+      valid = false;
+      alert('Name is required');
+    } else if (!namePattern.test(nameField.value.trim())) {
+      valid = false;
+      alert('Name can only contain letters and spaces');
+    }
+      // Check if Email is filled and valid
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (emailField.value.trim() === '') {
+      valid = false;
+      alert('Email is required');
+    } else if (!emailPattern.test(emailField.value.trim())) {
+      valid = false;
+      alert('Please enter a valid email address');
+    }
+
+    
+    // Check if Message is filled
+    if (messageField.value.trim() === '') {
+      valid = false;
+      alert('Message cannot be empty');
+    }
+ // If all checks pass, submit the form and show success message
+    if (valid) {
+      // Clear the form fields
+      nameField.value = '';
+      emailField.value = '';
+      messageField.value = '';
+
+      // Display the success message
+      successPopup.style.display = 'block';
+
+      // Hide the success message after 3 seconds
+      setTimeout(function() {
+        successPopup.style.display = 'none';
+      }, 3000);
+
+      // Optionally submit the form (uncomment below to actually send the form)
+      // form.submit();
+    }
+  });
+
     
     function toggleDarkMode() {
       document.body.classList.toggle('light-mode');
@@ -422,6 +518,32 @@
     });
     
     showSectionOnScroll();
+    const navLinks = document.querySelectorAll("nav a");
+
+function highlightNav() {
+  let index = sections.length;
+
+  while (--index >= 0) {
+    const sectionTop = sections[index].offsetTop - 150;
+    if (window.scrollY >= sectionTop) {
+      navLinks.forEach((link) => link.classList.remove("active"));
+      const activeSection = sections[index].getAttribute("id");
+      const activeLink = document.querySelector(`nav a[href="#${activeSection}"]`);
+      if (activeLink) activeLink.classList.add("active");
+      break;
+    }
+  }
+}
+
+window.addEventListener("scroll", () => {
+  highlightNav();
+  backToTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+  showSectionOnScroll();
+});
+
+// Run once on load
+highlightNav();
+
   </script>
 </body>
 </html>
